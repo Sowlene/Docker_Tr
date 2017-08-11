@@ -9,7 +9,7 @@ pipeline {
             
           },
           "First": {
-            readFile 'Dockfile'
+            readFile 'Dockerfile'
             
           }
         )

@@ -9,14 +9,13 @@ pipeline {
     stage('Read Dockerfile') {
       steps {
         echo 'Coucou'
-        sh 'pwd'
+        sh 'cat Dockerfile'
       }
     }
     stage('Build') {
       steps {
         echo 'Build step !'
-        sh '''docker build -t solene/installtv2 .
-'''
+        sh '''docker build -t solene/installtv2 .'''
       }
     }
     stage('Start Testing') {

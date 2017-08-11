@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Read Dockerfile') {
       steps {
-        sh 'pwd && ls -l'
+        sh 'pwd && ls -l && echo Coucou'
       }
     }
     stage('Build') {
@@ -38,7 +38,7 @@ pipeline {
             echo 'Starting  run test with sqlite'
             
           },
-          "": {
+          "error": {
             sh 'echo PLOP'
             
           }

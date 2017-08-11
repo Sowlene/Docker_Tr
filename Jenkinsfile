@@ -24,7 +24,7 @@ pipeline {
             
           },
           "ImageBuild": {
-            sh 'su solene docker build -t solene/installtv2 .'
+            sh 'docker build -t solene/installtv2 .'
             
           }
         )

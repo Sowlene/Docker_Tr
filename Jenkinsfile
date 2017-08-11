@@ -15,7 +15,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Build step !'
-        sh '''docker build -t solene/installtv2 .'''
+        sh 'docker build -t solene/installtv2 .'
       }
     }
     stage('Start Testing') {
@@ -43,6 +43,11 @@ pipeline {
             
           }
         )
+      }
+    }
+    stage('END') {
+      steps {
+        echo 'Image Buid correctly'
       }
     }
   }

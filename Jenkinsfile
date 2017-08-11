@@ -10,6 +10,7 @@ pipeline {
           },
           "First": {
             readFile 'Dockerfile'
+            sh 'cat Dockerfile'
             
           }
         )

@@ -4,7 +4,7 @@ pipeline {
     stage('Read Dockerfile') {
       steps {
         echo 'Coucou'
-        sh 'cat Dockerfile'
+        sh 'pwd'
       }
     }
     stage('Build') {

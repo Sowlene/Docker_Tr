@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Read Dockerfile') {
       steps {
-        sh 'pwd && ls -l && echo Coucou'
+        echo 'Coucou'
       }
     }
     stage('Build') {

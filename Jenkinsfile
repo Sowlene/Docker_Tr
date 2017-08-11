@@ -50,7 +50,16 @@ pipeline {
     }
     stage('END') {
       steps {
-        echo 'Image Buid correctly'
+        parallel(
+          "END": {
+            echo 'Image Buid correctly'
+            
+          },
+          "REPORT": {
+            archiveArtifacts 'target /* .README.md'
+            
+          }
+        )
       }
     }
   }

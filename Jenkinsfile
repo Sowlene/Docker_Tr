@@ -9,7 +9,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Build step !'
-        sh '''sudo docker build -t solene/installtv2 .
+        sh '''docker build -t solene/installtv2 .
 '''
       }
     }

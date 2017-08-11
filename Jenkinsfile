@@ -16,9 +16,23 @@ pipeline {
         )
       }
     }
+    stage('Build') {
+      steps {
+        parallel(
+          "Build": {
+            echo 'We are trying to build'
+            
+          },
+          "ImageBuild": {
+            sh 'docker build -t solene/installtv2 .'
+            
+          }
+        )
+      }
+    }
     stage('End') {
       steps {
-        echo 'End'
+        echo 'End is finally here.'
       }
     }
   }

@@ -1,14 +1,18 @@
 pipeline {
   agent {
-    dockerfile {
-      filename 'Dockerfile'
+    docker {
+      image 'python3.5'
     }
     
   }
   stages {
     stage('Read Dockerfile') {
       steps {
-        echo 'Coucou'
+        sh '''echo PATH = ${PATH} && echo M2_HOME = ${M2_HOME}
+
+
+&& mvn clean'''
+        readFile 'Dockerfile'
       }
     }
     stage('Build') {

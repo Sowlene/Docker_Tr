@@ -4,36 +4,33 @@ pipeline {
   stages {
     stage('Read Dockerfile') {
       steps {
-        sh '''echo PATH = ${PATH} && echo M2_HOME = ${M2_HOME}
-
-
-&& mvn clean'''
+        sh 'cat DockerFile'
         readFile 'Dockerfile'
       }
     }
     stage('Build') {
       steps {
-        echo 'Build step !'
+        echo 'We are going to build our image docker !'
         sh 'docker build -t solene/installtv2 .'
       }
     }
-    stage('Start Testing') {
+    stage('Test') {
       steps {
         echo 'We will test if the build run with 3 type of DB'
       }
     }
-    stage('Test with postgresql') {
+    stage('Testpostgresql') {
       steps {
         parallel(
           "Test": {
             echo 'Starting  run test'
             
           },
-          "Test with mysql": {
+          "Testmysql": {
             echo 'Starting  run test with mysql'
             
           },
-          "Test with sqlite": {
+          "Testqlite": {
             echo 'Starting  run test with sqlite'
             
           },

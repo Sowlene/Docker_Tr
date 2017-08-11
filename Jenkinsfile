@@ -1,9 +1,5 @@
 pipeline {
-  agent {
-    docker {
-      image 'python3.5'
-    }
-    
+  agent any    
   }
   stages {
     stage('Read Dockerfile') {

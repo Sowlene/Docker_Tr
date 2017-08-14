@@ -26,7 +26,6 @@ pipeline {
           "ImageBuild": {
             sh 'who '
             sh 'cd /home/solene/Applications/docktest/ && ls -lh'
-            sh 'chmod 777 /var/run/docker.sock'
             sh 'docker build -t solene/installtv2 .'
             
           }

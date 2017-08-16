@@ -32,9 +32,36 @@ pipeline {
         )
       }
     }
+    stage('ContainersStarting') {
+      steps {
+        echo 'Container are going to start for our test steps :)'
+      }
+    }
+    stage('Test') {
+      steps {
+        parallel(
+          "TestDocker": {
+            echo 'We\'re in our testes step, enjoy !'
+            
+          },
+          "TestWithPostgresql": {
+            sh 'docker run -it -p 80:80 -e DATABASE_TYPE=postgresql -e DATABASE_USER=tracimuser -e DATABASE_PASSWORD=tracimpassword -e DATABASE_HOST=192.168.1.73 -e DATABASE_NAME=tracimdb solene/installtv2'
+            
+          },
+          "TestWithMysql": {
+            sh 'docker run -it -p 80:80 -e DATABASE_TYPE=mysql -e DATABASE_USER=tracimuser -e DATABASE_PASSWORD=tracimpassword -e DATABASE_HOST=192.168.1.73 -e DATABASE_NAME=tracimdb solene/installtv2'
+            
+          },
+          "TestWithsqlite": {
+            sh 'docker run -it -p 80:80 -e DATABASE_TYPE=sqlite -e DATABASE_USER=tracimuser -e DATABASE_PASSWORD=tracimpassword -e DATABASE_HOST=192.168.1.73 -e DATABASE_NAME=tracimdb solene/installtv2'
+            
+          }
+        )
+      }
+    }
     stage('End') {
       steps {
-        echo 'End is finally here.'
+        echo 'Winter is coming. '
       }
     }
   }

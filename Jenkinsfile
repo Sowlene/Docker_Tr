@@ -45,7 +45,7 @@ pipeline {
             
           },
           "TestWithPostgresql": {
-            sh 'docker run -it -e DATABASE_TYPE=postgresql -e DATABASE_USER=tracimuser -e DATABASE_PASSWORD=tracimpassword -e DATABASE_HOST=192.168.1.73 -e DATABASE_NAME=tracimdb solene/installtv2 /bin/bash'
+            sh 'docker run -i -e DATABASE_TYPE=postgresql -e DATABASE_USER=tracimuser -e DATABASE_PASSWORD=tracimpassword -e DATABASE_HOST=192.168.1.73 -e DATABASE_NAME=tracimdb solene/installtv2 /bin/bash'
             sh 'cd /tracim && pwd && ls-lhS'
             
           },

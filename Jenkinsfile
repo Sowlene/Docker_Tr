@@ -50,10 +50,12 @@ pipeline {
             
           },
           "TestWithMysql": {
+            sh 'echo shut'
             sh 'docker run  -e DATABASE_TYPE=mysql -e DATABASE_USER=tracimuser -e DATABASE_PASSWORD=tracimpassword -e DATABASE_HOST=192.168.1.73 -e DATABASE_NAME=tracimdb solene/installtv2'
             
           },
           "TestWithsqlite": {
+            sh 'echo shut'
             sh 'docker run -e DATABASE_TYPE=sqlite -e DATABASE_USER=tracimuser -e DATABASE_PASSWORD=tracimpassword -e DATABASE_HOST=192.168.1.73 -e DATABASE_NAME=tracimdb solene/installtv2'
             
           }

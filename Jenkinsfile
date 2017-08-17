@@ -24,7 +24,7 @@ pipeline {
             
           },
           "ImageBuild": {
-            sh '''ls -lhS /var/run/ | grep .sock
+            sh '''ls -lhS /var/run/ | grep docker.sock
 '''
             sh 'docker build -t solene/installtv2 .'
             

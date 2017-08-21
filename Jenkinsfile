@@ -66,7 +66,7 @@ pipeline {
     stage('End') {
       steps {
         echo 'I will check containers'
-        sh 'docker ps'
+        sh 'docker ps -n 3'
       }
     }
   }

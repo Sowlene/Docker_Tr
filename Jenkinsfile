@@ -3,30 +3,49 @@ pipeline {
   stages {
     stage('Welcome') {
       steps {
-        echo 'Welcome'
-        dir(path: '/var/lib/jenkins/workspace/Sowlene_Docker_Tr_master-BKNB6FCY5LJARIWM7QM33SLIQXAUMZFX6H7O3WOAIWZETDJQEIOQ/debian_Dev/') {
-          sh 'pwd && who && ls -Shal #l not pass'
-        }
-        
-      }
-    }
-    stage('Build Docker Image') {
-      steps {
         parallel(
-          "Build Docker Image": {
-            sh 'ls -lhS /var/run/ | grep docker.sock'
+          "Welcome": {
+            echo 'Welcome'
             
           },
-          "Build": {
-            sh 'pwd && docker build -t solene/installtv2 .'
+          "First": {
+            readFile 'Dockerfile'
+            sh 'cat Dockerfile'
+            
+          },
+          "Situation": {
+            sh 'pwd && who && ls -Shal #l not pass'
             
           }
         )
       }
     }
+    stage('Build') {
+      steps {
+        parallel(
+          "Build": {
+            echo 'Build'
+            
+          },
+          "Autorisation": {
+            sh 'ls -lhS /var/run/ | grep docker.sock'
+            
+          },
+          "Build Docker": {
+            sh 'docker build -t solene/installtv2 .'
+            
+          }
+        )
+      }
+    }
+    stage('Run') {
+      steps {
+        echo 'Run'
+      }
+    }
     stage('End') {
       steps {
-        echo 'End '
+        echo 'End'
       }
     }
   }

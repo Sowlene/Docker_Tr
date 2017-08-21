@@ -17,16 +17,7 @@ pipeline {
     }
     stage('Change Directory') {
       steps {
-        parallel(
-          "Change Directory": {
-            sh 'cd Debian_Dev/ && pwd'
-            
-          },
-          "": {
-            sh 'ls -Shal'
-            
-          }
-        )
+        sh 'cd Debian_Dev/ && ls -Shal'
       }
     }
     stage('Situation') {

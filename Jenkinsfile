@@ -49,19 +49,15 @@ pipeline {
             
           },
           "TestWithPostgresql": {
-            sh 'docker run -i -e DATABASE_TYPE=postgresql -e DATABASE_USER=tracimuser -e DATABASE_PASSWORD=tracimpassword -e DATABASE_HOST=192.168.1.73 -e DATABASE_NAME=tracimdb solene/installtv2'
+            sh 'docker run --entrypoint bash solene/installtv2 -c ls -lisa /var/lib/jenkins/workspace/Sowlene_Testdocker_master-PYO76PG2MVGEIIOJ3RJCE7EOHZTFGO7XLVV32IOJYUTNYG42QINA/entrypoint.sh -e DATABASE_TYPE=postgresql -e DATABASE_USER=tracimuser -e DATABASE_PASSWORD=tracimpassword -e DATABASE_HOST=192.168.1.73 -e DATABASE_NAME=tracimdb '
             
           },
           "TestWithsqlite": {
-            sh 'docker run -e DATABASE_TYPE=sqlite -e DATABASE_USER=tracimuser -e DATABASE_PASSWORD=tracimpassword -e DATABASE_HOST=192.168.1.73 -e DATABASE_NAME=tracimdb solene/installtv2'
+            sh 'docker run --entrypoint bash solene/installtv2 -c ls -lisa /var/lib/jenkins/workspace/Sowlene_Testdocker_master-PYO76PG2MVGEIIOJ3RJCE7EOHZTFGO7XLVV32IOJYUTNYG42QINA/entrypoint.sh -e DATABASE_TYPE=sqlite -e DATABASE_USER=tracimuser -e DATABASE_PASSWORD=tracimpassword -e DATABASE_HOST=192.168.1.73 -e DATABASE_NAME=tracimdb '
             
           },
           "TestWithMysql": {
-            sh 'docker run -e DATABASE_TYPE=mysql -e DATABASE_USER=tracimuser -e DATABASE_PASSWORD=tracimpassword -e DATABASE_HOST=192.168.1.73 -e DATABASE_NAME=tracimdb solene/installtv2'
-            
-          },
-          "Resolve": {
-            sh 'docker run --entrypoint bash solene/installtv2 -c ls -lisa /var/lib/jenkins/workspace/Sowlene_Testdocker_master-PYO76PG2MVGEIIOJ3RJCE7EOHZTFGO7XLVV32IOJYUTNYG42QINA/entrypoint.sh -e DATABASE_TYPE=sqlite -e DATABASE_USER=tracimuser -e DATABASE_PASSWORD=tracimpassword -e DATABASE_HOST=192.168.1.73 -e DATABASE_NAME=tracimdb '
+            sh 'docker run --entrypoint bash solene/installtv2 -c ls -lisa /var/lib/jenkins/workspace/Sowlene_Testdocker_master-PYO76PG2MVGEIIOJ3RJCE7EOHZTFGO7XLVV32IOJYUTNYG42QINA/entrypoint.sh -e DATABASE_TYPE=mysql -e DATABASE_USER=tracimuser -e DATABASE_PASSWORD=tracimpassword -e DATABASE_HOST=192.168.1.73 -e DATABASE_NAME=tracimdb '
             
           }
         )
@@ -69,7 +65,8 @@ pipeline {
     }
     stage('End') {
       steps {
-        echo 'Winter is coming. '
+        echo 'I will check containers'
+        sh 'docker ps'
       }
     }
   }

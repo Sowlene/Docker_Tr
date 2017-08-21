@@ -20,5 +20,29 @@ pipeline {
         sh 'cd Debian_Dev/ && pwd'
       }
     }
+    stage('Situation') {
+      steps {
+        sh 'cat Dockerfile'
+      }
+    }
+    stage('Build Docker Image') {
+      steps {
+        parallel(
+          "Build Docker Image": {
+            sh 'ls -lhS /var/run/ | grep docker.sock'
+            
+          },
+          "Build": {
+            sh 'docker build -t solene/installtv2 .'
+            
+          }
+        )
+      }
+    }
+    stage('End') {
+      steps {
+        echo 'End '
+      }
+    }
   }
 }

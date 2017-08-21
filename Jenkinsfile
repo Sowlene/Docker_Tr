@@ -12,6 +12,10 @@ pipeline {
             readFile 'Dockerfile'
             sh 'cat Dockerfile'
             
+          },
+          "Situation": {
+            sh 'pwd && who && ls -lhaS'
+            
           }
         )
       }

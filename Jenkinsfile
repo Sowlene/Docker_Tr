@@ -18,13 +18,7 @@ pipeline {
     stage('Change Directory') {
       steps {
         sh 'cd Debian_Dev/ && ls -Shal'
-      }
-    }
-    stage('Situation') {
-      steps {
-        findFiles(glob: 'Dockerfile')
-        readFile 'Dockerfile'
-        sh 'cat Dockerfile'
+        dir(path: '/var/lib/jenkins/workspace/Sowlene_Docker_Tr_master-BKNB6FCY5LJARIWM7QM33SLIQXAUMZFX6H7O3WOAIWZETDJQEIOQ/Debian_Dev/')
       }
     }
     stage('Build Docker Image') {

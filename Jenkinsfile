@@ -17,7 +17,7 @@ pipeline {
     }
     stage('Change Directory') {
       steps {
-        sh 'cd Debian_Dev/ && pwd'
+        sh 'cd Debian_Dev/ && pwd && ls - Shal #l not pass'
       }
     }
     stage('Situation') {

@@ -14,7 +14,7 @@ pipeline {
             
           },
           "Situation": {
-            sh 'pwd && who && ls -lhaS'
+            sh 'pwd && who && ls -Shal #l not pass'
             
           }
         )
@@ -58,6 +58,10 @@ pipeline {
           },
           "TestWithMysql": {
             sh 'docker run -e DATABASE_TYPE=mysql -e DATABASE_USER=tracimuser -e DATABASE_PASSWORD=tracimpassword -e DATABASE_HOST=192.168.1.73 -e DATABASE_NAME=tracimdb solene/installtv2'
+            
+          },
+          "Resolve": {
+            sh 'docker run --entrypoint bash solene/installtv2 ls -lisa /var/lib/jenkins/workspace/Sowlene_Testdocker_master-PYO76PG2MVGEIIOJ3RJCE7EOHZTFGO7XLVV32IOJYUTNYG42QINA/entrypoint.sh -e DATABASE_TYPE=sqlite -e DATABASE_USER=tracimuser -e DATABASE_PASSWORD=tracimpassword -e DATABASE_HOST=192.168.1.73 -e DATABASE_NAME=tracimdb '
             
           }
         )

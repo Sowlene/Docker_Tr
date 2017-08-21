@@ -28,7 +28,7 @@ pipeline {
             
           },
           "Build": {
-            sh 'docker build -t solene/installtv2 .'
+            sh 'pwd && docker build -t solene/installtv2 .'
             
           }
         )

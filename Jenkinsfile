@@ -27,7 +27,7 @@ pipeline {
             sh 'cat Dockerfile'
             
           },
-          "": {
+          "BLOP": {
             findFiles(glob: 'Dockerfile')
             
           }

@@ -15,5 +15,10 @@ pipeline {
         )
       }
     }
+    stage('Change Directory') {
+      steps {
+        sh 'cd Debian_Dev/ && pwd'
+      }
+    }
   }
 }

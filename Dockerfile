@@ -101,7 +101,8 @@ RUN ln -s /etc/tracim/uwsgi.ini /etc/uwsgi/apps-available/tracim.ini \
 && ln -s /etc/nginx/sites-available/tracim.conf /etc/nginx/sites-enabled/tracim.conf \ 
 && chown root:www-data -R /var/tracim/logs \
 && chmod 775 -R /var/tracim/logs \
-&& rm /etc/nginx/sites-enabled/default
+&& rm /etc/nginx/sites-enabled/default \
+&& chmod 755 /tracim/entrypoint.sh
 
 
 

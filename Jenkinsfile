@@ -22,7 +22,16 @@ pipeline {
     }
     stage('Situation') {
       steps {
-        sh 'cat Dockerfile'
+        parallel(
+          "Situation": {
+            sh 'cat Dockerfile'
+            
+          },
+          "": {
+            findFiles(glob: 'Dockerfile')
+            
+          }
+        )
       }
     }
     stage('Build Docker Image') {

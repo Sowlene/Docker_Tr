@@ -2,6 +2,7 @@
 
 # Default values
 FETCH=${FETCH:=1}
+export PATH=$PATH:/usr/java/jre1.6.0_24/bin/
 
 # Check environment variables
 /bin/bash /tracim/check_env_vars.sh

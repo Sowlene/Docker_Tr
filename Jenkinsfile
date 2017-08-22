@@ -27,7 +27,7 @@ pipeline {
             
           },
           "Build Docker": {
-            sh 'docker build -t solene/installtv2 .'
+            sh 'cd /Debian_Dev/ && docker build -t solene/installtv2 .'
             
           }
         )

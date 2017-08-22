@@ -27,7 +27,7 @@ pipeline {
             
           },
           "Build Docker": {
-            sh 'cd Debian_Dev/ && docker build -t solene/docker_trac_dev .'
+            sh 'cd Debian_Dev/ && cat Dockerfile && docker build -t solene/docker_trac_dev .'
             
           }
         )

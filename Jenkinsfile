@@ -27,7 +27,7 @@ pipeline {
             
           },
           "Build Docker": {
-            sh 'cd Debian_Dev/ && docker build -t solene/installtv2 .'
+            sh 'cd Debian_Dev/ && docker build -t solene/docker_trac_dev .'
             
           }
         )
@@ -42,6 +42,7 @@ pipeline {
           },
           "Postgresql": {
             echo 'Run with Postgresql'
+            sh 'docker run solene/docker_trac_dev'
             
           },
           "Mysql": {

@@ -42,18 +42,17 @@ pipeline {
           },
           "Postgresql": {
             echo 'Run with Postgresql'
-            sh 'docker run -e DATABASE_TYPE=postgresql -e DATABASE_USER=tracimuser -e DATABASE_PASSWORD=tracimpassword -e DATABASE_HOST=192.168.1.73 -e DATABASE_NAME=tracimdb solene/docker_trac_dev'
+            sh 'cd Debian_Dev/ && docker run -e TEST_DATABASE_ENGINE=postgresql solene/docker_trac_dev'
             
           },
           "Mysql": {
             echo 'Run with Mysql'
-            sh '''cd Debian_Dev/ && docker run -e TEST_DATABASE_ENGINE=mysql solene/docker_trac_dev
-'''
+            sh 'cd Debian_Dev/ && docker run -e TEST_DATABASE_ENGINE=mysql solene/docker_trac_dev'
             
           },
           "Sqlite": {
             echo 'Run with PSqlite'
-            sh 'docker run -e DATABASE_TYPE=sqlite -e DATABASE_USER=tracimuser -e DATABASE_PASSWORD=tracimpassword -e DATABASE_HOST=192.168.1.73 -e DATABASE_NAME=tracimdb solene/docker_trac_dev'
+            sh 'cd Debian_Dev/ && docker run -e TEST_DATABASE_ENGINE=sqlite solene/docker_trac_dev'
             
           }
         )

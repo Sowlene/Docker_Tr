@@ -47,7 +47,7 @@ pipeline {
           },
           "Mysql": {
             echo 'Run with Mysql'
-            sh '''docker run -e TEST_DATABASE_ENGINE=mysql solene/docker_trac_dev
+            sh '''cd Debian_Dev/ docker run -e TEST_DATABASE_ENGINE=mysql solene/docker_trac_dev
 '''
             
           },

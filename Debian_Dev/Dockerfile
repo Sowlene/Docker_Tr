@@ -8,7 +8,6 @@ MAINTAINER contact@algoo.fr
 #Install required packages
 RUN apt update -q \
 	&& apt install -yq sudo \
-	&& echo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
 	git \
 	locales \
 	realpath \
@@ -104,7 +103,5 @@ RUN ln -s /etc/tracim/uwsgi.ini /etc/uwsgi/apps-available/tracim.ini \
 && chmod 775 -R /var/tracim/logs \
 && rm /etc/nginx/sites-enabled/default \
 && chmod 755 /tracim/entrypoint.sh
-
-
 
 CMD ["/tracim/entrypoint.sh"]

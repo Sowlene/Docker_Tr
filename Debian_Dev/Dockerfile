@@ -31,7 +31,7 @@ RUN apt update -q \
 	mysql-server \
 	libmariadbd-dev \
 	libmariadbclient-dev-compat \
-	vim\
+	openjdk-8-jre \
 	nginx
 
 # Ensure UTF-8

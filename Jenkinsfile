@@ -42,7 +42,7 @@ pipeline {
           },
           "Postgresql": {
             echo 'Run with Postgresql'
-            sh 'docker run solene/docker_trac_dev -e DATABASE_TYPE=postgresql'
+            sh 'docker run -e DATABASE_TYPE=postgresql -e DATABASE_USER=tracimuser -e DATABASE_PASSWORD=tracimpassword -e DATABASE_HOST=192.168.1.73 -e DATABASE_NAME=tracimdb solene/docker_trac_dev'
             
           },
           "Mysql": {

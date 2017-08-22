@@ -8,7 +8,7 @@ MAINTAINER contact@algoo.fr
 #Install required packages
 RUN apt update -q \
 	&& apt install -yq sudo \
-	&& echo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx
+	&& echo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
 	git \
 	locales \
 	realpath \

@@ -47,7 +47,8 @@ pipeline {
           },
           "Mysql": {
             echo 'Run with Mysql'
-            sh 'docker run -e DATABASE_TYPE=mysql -e DATABASE_USER=tracimuser -e DATABASE_PASSWORD=tracimpassword -e DATABASE_HOST=192.168.1.73 -e DATABASE_NAME=tracimdb solene/docker_trac_dev'
+            sh '''docker run -e TEST_DATABASE_ENGINE=mysql solene/docker_trac_dev
+'''
             
           },
           "Sqlite": {

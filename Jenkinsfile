@@ -42,7 +42,7 @@ pipeline {
           },
           "Postgresql": {
             echo 'Run with Postgresql'
-            sh 'docker run solene/docker_trac_dev'
+            sh 'docker run solene/docker_trac_dev -e DATABASE_TYPE=postgresql'
             
           },
           "Mysql": {

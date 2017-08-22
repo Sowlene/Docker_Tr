@@ -8,11 +8,6 @@ pipeline {
             echo 'Welcome'
             
           },
-          "First": {
-            readFile 'Dockerfile'
-            sh 'cat Dockerfile'
-            
-          },
           "Situation": {
             sh 'pwd && who && ls -Shal #l not pass'
             

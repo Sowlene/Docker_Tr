@@ -35,7 +35,24 @@ pipeline {
     }
     stage('Run') {
       steps {
-        echo 'Run'
+        parallel(
+          "Run": {
+            echo 'Run'
+            
+          },
+          "Postgresql": {
+            echo 'Run with Postgresql'
+            
+          },
+          "Mysql": {
+            echo 'Run with Mysql'
+            
+          },
+          "Sqlite": {
+            echo 'Run with PSqlite'
+            
+          }
+        )
       }
     }
     stage('End') {

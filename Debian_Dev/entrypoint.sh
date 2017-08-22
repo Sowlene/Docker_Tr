@@ -2,7 +2,6 @@
 
 # Default values
 FETCH=${FETCH:=1}
-export PATH=$PATH:/usr/java/jre1.6.0_24/bin/
 
 # Check environment variables
 /bin/bash /tracim/check_env_vars.sh
@@ -32,6 +31,7 @@ if [ "$TEST_DATABASE_ENGINE" = postgresql ] ; then
     su - postgres -s /bin/bash -c "psql -c \"ALTER USER postgres WITH PASSWORD 'dummy';\""
     sed -i "s/\(sqlalchemy.url *= *\).*/\sqlalchemy.url = postgresql:\/\/postgres:dummy@127.0.0.1:5432\/tracim?client_encoding=utf8/" /tracim/tracim/test.ini
     sed -i "s/\(sqlalchemy.url *= *\).*/\sqlalchemy.url = postgresql:\/\/postgres:dummy@127.0.0.1:5432\/tracim?client_encoding=utf8/" /tracim/tracim/development.ini
+    openjdk-7-jre
 fi
 
 # MySQL case

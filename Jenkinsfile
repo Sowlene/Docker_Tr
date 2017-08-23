@@ -37,7 +37,7 @@ pipeline {
       steps {
         parallel(
           "Run": {
-            echo 'Run'
+            echo 'Run with pymysql'
             
           },
           "Postgresql": {

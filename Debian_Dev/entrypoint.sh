@@ -36,8 +36,8 @@ fi
 # MySQL case
 if [ "$TEST_DATABASE_ENGINE" = mysql ] ; then
     service mysql start
-    echo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     mysql -e 'CREATE DATABASE tracim;'
+    mysql -e 'ALTER SCHEMA tracim DEFAULT CHARACTER SET utf8;'
     sed -i "s/\(sqlalchemy.url *= *\).*/\sqlalchemy.url = mysql+mysqldb:\/\/root@localhost\/tracim/" /tracim/tracim/test.ini
     sed -i "s/\(sqlalchemy.url *= *\).*/\sqlalchemy.url = mysql+mysqldb:\/\/root@localhost\/tracim/" /tracim/tracim/development.ini
 fi

@@ -38,6 +38,7 @@ pipeline {
         parallel(
           "Run": {
             echo 'Run with pymysql'
+            sh 'cd Debian_Dev/ && cat entrypoint.sh'
             
           },
           "Postgresql": {

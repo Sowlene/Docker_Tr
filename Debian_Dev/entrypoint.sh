@@ -36,8 +36,11 @@ fi
 # MySQL case
 if [ "$TEST_DATABASE_ENGINE" = mysql ] ; then
     service mysql start
-    mysql -e 'CREATE DATABASE tracim;'
     mysql -e 'ALTER SCHEMA tracim DEFAULT CHARACTER SET utf8;'
+    mysql -e 'CREATE USER 'tracimuser'@'localhost' IDENTIFIED BY 'tracimpassword';'
+    mysql -e 'CREATE DATABASE tracim;'
+    mysql -e 'GRANT ALL PRIVILEGES ON tracimd . * TO 'tracimuser'@'localhost';'
+    mysql -e 'FLUSH PRIVILEGES;'
     sed -i "s/\(sqlalchemy.url *= *\).*/\sqlalchemy.url = mysql+pymysql:\/\/root@localhost\/tracim/" /tracim/tracim/test.ini
     sed -i "s/\(sqlalchemy.url *= *\).*/\sqlalchemy.url = mysql+pymysql:\/\/root@localhost\/tracim/" /tracim/tracim/development.ini
 fi

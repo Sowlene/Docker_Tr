@@ -27,8 +27,8 @@ cp /tracim/tracim/config.ini /tracim/tracim/development.ini
 # PostgreSQL case
 if [ "$TEST_DATABASE_ENGINE" = postgresql ] ; then
     service postgresql start
-    su - postgres -s /bin/bash -c "psql -c \"CREATE USER tracimuser WITH PASSWORD tracimpassword;\""
-    su - postgres -s /bin/bash -c "psql -c \"CREATE DATABASE tracimdb OWNER TO tracimuser;\""
+    su - postgres -s /bin/bash -c "psql -c \"CREATE USER tracimuser WITH PASSWORD 'tracimpassword';\""
+    su - postgres -s /bin/bash -c "psql -c \"CREATE DATABASE tracimdb OWNER tracimuser;\""
     # su - postgres -s /bin/bash -c "psql -c \"ALTER USER postgres WITH PASSWORD 'dummy';\"
     sed -i "s/\(sqlalchemy.url *= *\).*/\sqlalchemy.url = postgresql:\/\/tracimuser:tracimpassword@127.0.0.1:5432\/tracimdb?client_encoding=utf8/" /tracim/tracim/test.ini
     sed -i "s/\(sqlalchemy.url *= *\).*/\sqlalchemy.url = postgresql:\/\/tracimuser:tracimpassword@127.0.0.1:5432\/tracimdb?client_encoding=utf8/" /tracim/tracim/development.ini

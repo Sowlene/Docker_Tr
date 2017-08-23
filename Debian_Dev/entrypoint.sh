@@ -40,8 +40,8 @@ if [ "$TEST_DATABASE_ENGINE" = mysql ] ; then
     mysql -e "CREATE DATABASE tracimdb DEFAULT CHARACTER SET utf8;"
     mysql -e "GRANT ALL PRIVILEGES ON tracimdb.* TO 'tracimuser'@'localhost';"
     mysql -e "FLUSH PRIVILEGES;"
-    sed -i "s/\(sqlalchemy.url *= *\).*/\sqlalchemy.url = mysql+pymysql:\/\/tracimuser@localhost\/tracimdb/" /tracim/tracim/test.ini
-    sed -i "s/\(sqlalchemy.url *= *\).*/\sqlalchemy.url = mysql+pymysql:\/\/tracimuser@localhost\/tracimdb/" /tracim/tracim/development.ini
+    sed -i "s/\(sqlalchemy.url *= *\).*/\sqlalchemy.url = mysql+pymysql:\/\/tracimuser:tracimpassword@localhost\/tracimdb/" /tracim/tracim/test.ini
+    sed -i "s/\(sqlalchemy.url *= *\).*/\sqlalchemy.url = mysql+pymysql:\/\/tracimuser:tracimpassword@localhost\/tracimdb/" /tracim/tracim/development.ini
 fi
 
 # SQLite case

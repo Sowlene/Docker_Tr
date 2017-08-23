@@ -36,10 +36,10 @@ fi
 # MySQL case
 if [ "$TEST_DATABASE_ENGINE" = mysql ] ; then
     service mysql start
-    mysql -e 'CREATE USER tracimuser@localhost IDENTIFIED BY tracimpassword;'
-    mysql -e 'CREATE DATABASE tracimdb OWNER TO tracimuser;'
-    mysql -e 'ALTER DATABASE tracimdb DEFAULT CHARACTER SET utf8;'
-    mysql -e 'GRANT ALL PRIVILEGES ON tracimdb . * TO tracimuser@localhost;'
+    mysql -e 'CREATE USER \'tracimuser\'@\'localhost\' IDENTIFIED BY \'tracimpassword\';'
+    mysql -e 'CREATE DATABASE \'tracimdb\' OWNER TO \'tracimuser\';'
+    mysql -e 'ALTER DATABASE \'tracimdb\' DEFAULT CHARACTER SET utf8;'
+    mysql -e 'GRANT ALL PRIVILEGES ON \'tracimdb\' . * TO \'tracimuser@localhost\';'
     mysql -e 'FLUSH PRIVILEGES;'
     sed -i "s/\(sqlalchemy.url *= *\).*/\sqlalchemy.url = mysql+pymysql:\/\/tracimuser@localhost\/tracimdb/" /tracim/tracim/test.ini
     sed -i "s/\(sqlalchemy.url *= *\).*/\sqlalchemy.url = mysql+pymysql:\/\/tracimuser@localhost\/tracimdb/" /tracim/tracim/development.ini

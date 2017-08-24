@@ -5,7 +5,7 @@ pipeline {
       steps {
         parallel(
           "Welcome": {
-            echo 'Welcome'
+            echo 'Here we go'
             
           },
           "Situation": {
@@ -18,12 +18,9 @@ pipeline {
     stage('Build') {
       steps {
         parallel(
-          "Build": {
-            echo 'Build'
-            
-          },
-          "Autorisation": {
+          "Autorisations": {
             sh 'ls -lhS /var/run/ | grep docker.sock'
+            echo 'Si un message concernant les permissions apparait faites un chmod 770 de ce fichier'
             
           },
           "Build Docker": {
@@ -37,7 +34,6 @@ pipeline {
       steps {
         parallel(
           "Run": {
-            echo 'Run with pymysql'
             sh 'cd Debian_Dev/ && cat entrypoint.sh'
             
           },

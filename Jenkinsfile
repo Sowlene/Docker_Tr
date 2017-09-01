@@ -23,33 +23,8 @@ pipeline {
             echo 'Si un message concernant les permissions apparait faites un chmod 770 de ce fichier'
             
           },
-          "Build Docker_DEV": {
-            sh 'cd Debian_Dev/ && cat Dockerfile && docker build -t solene/docker_trac_dev .'
-            
-          }
-        )
-      }
-    }
-    stage('Run') {
-      steps {
-        parallel(
-          "Run_DEV": {
-            sh 'cd Debian_Dev/ && cat entrypoint.sh'
-            
-          },
-          "Postgresql_DEV": {
-            echo 'Run with Postgresql'
-            sh 'cd Debian_Dev/ && docker run -e TEST_DATABASE_ENGINE=postgresql solene/docker_trac_dev'
-            
-          },
-          "Mysql_DEV": {
-            echo 'Run with Mysql'
-            sh 'cd Debian_Dev/ && docker run -e TEST_DATABASE_ENGINE=mysql solene/docker_trac_dev'
-            
-          },
-          "Sqlite_DEV": {
-            echo 'Run with PSqlite'
-            sh 'cd Debian_Dev/ && docker run -e TEST_DATABASE_ENGINE=sqlite solene/docker_trac_dev'
+          "Build Docker_PROD": {
+            sh 'cd Debian_Prod/ && cat Dockerfile && docker build -t solene/docker_trac_dev .'
             
           }
         )

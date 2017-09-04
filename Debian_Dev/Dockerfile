@@ -1,10 +1,8 @@
 FROM debian:latest
 MAINTAINER contact@algoo.fr
 
-#TODO: See GOOD PRATICE (remove apt lists, cache, etc)
 #TODO @Damien: processus d'install (pip) plein de warning et d'erreur de compilation non fatals. 
-#Voir pour avoir toute les libb-dev qu'il faut ?
-#virtual env
+
 #Install required packages
 RUN apt update -q \
 	&& apt install -yq sudo \
@@ -74,12 +72,6 @@ RUN cp /tracim/tracim/development.ini.base /tracim/tracim/development.ini \
 #DB schema
 RUN cd /tracim/tracim/ && gearbox setup-app --debug
 RUN cd /tracim/doc/ && echo ALTER SCHEMA tracimdb DEFAULT CHARACTER SET utf8 >> database.md
-
-#Gearbox
-#RUN gearbox serve --reload --debug
-
-#Running standalone server
-#RUN ./bin/run.sh
 
 #Prepare volumes
 RUN mkdir /etc/tracim \

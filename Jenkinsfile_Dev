@@ -34,7 +34,7 @@ pipeline {
       steps {
         parallel(
           "Run_DEV": {
-            sh 'cd Debian_Dev/ && cat entrypoint.sh'
+            sh 'cd Debian_Dev/ && ls -lh && cat entrypoint.sh'
             
           },
           "Postgresql_DEV": {

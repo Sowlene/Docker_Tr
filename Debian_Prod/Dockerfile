@@ -43,7 +43,6 @@ RUN apt update -q \
 	&& dpkg-reconfigure locales \
 	&& locale-gen C.UTF-8 \
 	&& /usr/sbin/update-locale LANG=C.UTF-8 \
-	&& rm -rf /vat/lib/apt/list/* \
 #Get the source from GitHub
 	&& git clone http://github.com/tracim/tracim.git \
 	&& cd /tracim/ \
@@ -84,7 +83,9 @@ RUN apt update -q \
 	&& chown root:www-data -R /var/tracim/logs \
 	&& chmod 775 -R /var/tracim/logs \
 	&& rm /etc/nginx/sites-enabled/default \
-	&& chmod 755 /tracim/entrypoint.sh
+	&& chmod 755 /tracim/entrypoint.sh \
+	&& rm -rf /vat/lib/apt/list/* \	
+	&& rm -rf /var/cache/apt/archives/*
 
 VOLUME ["/etc/tracim", "/var/tracim"]
 

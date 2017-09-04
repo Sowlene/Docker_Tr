@@ -30,9 +30,8 @@ RUN apt update -q \
 	libmariadbd-dev \
 	libmariadbclient-dev-compat \
 	openjdk-8-jre \
-	nginx \
-	vim
-
+	nginx 
+	
 # Ensure UTF-8
 RUN locale-gen en_US.UTF-8 en_us \
 	&& dpkg-reconfigure locales \

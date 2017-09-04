@@ -20,8 +20,6 @@ RUN apt update -q \
 	zlib1g-dev \
 	curl \
 	libjpeg-dev \
-	uwsgi \
-	uwsgi-plugin-python3 \
 	libmagickwand-dev \
 	postgresql-server-dev-all \
 	postgresql \

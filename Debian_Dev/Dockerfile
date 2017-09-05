@@ -5,6 +5,7 @@ MAINTAINER contact@algoo.fr
 
 #Install required packages
 RUN apt update -q \
+	&& echo XXXXXXXXXXXXXXXXXXXXXXXXXXX \
 	&& apt install -yq sudo \
 	git \
 	locales \
@@ -18,8 +19,10 @@ RUN apt update -q \
 	libxml2-dev \
 	libxslt1-dev \
 	zlib1g-dev \
-	curl \
 	libjpeg-dev \
+	uwsgi \
+	curl \
+	uwsgi-plugin-python3 \
 	libmagickwand-dev \
 	postgresql-server-dev-all \
 	postgresql \
@@ -27,9 +30,7 @@ RUN apt update -q \
 	mysql-server \
 	libmariadbd-dev \
 	libmariadbclient-dev-compat \
-	openjdk-8-jre \
 	nginx \
-	vim
 	
 # Ensure UTF-8
 RUN locale-gen en_US.UTF-8 en_us \

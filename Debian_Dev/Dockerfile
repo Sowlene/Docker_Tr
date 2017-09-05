@@ -5,7 +5,6 @@ MAINTAINER contact@algoo.fr
 
 #Install required packages
 RUN apt update -q \
-	&& echo XXXXXXXXXXXXXXXXXXXXXXXXXXX \
 	&& apt install -yq sudo \
 	git \
 	locales \
@@ -30,7 +29,7 @@ RUN apt update -q \
 	mysql-server \
 	libmariadbd-dev \
 	libmariadbclient-dev-compat \
-	nginx \
+	nginx
 	
 # Ensure UTF-8
 RUN locale-gen en_US.UTF-8 en_us \

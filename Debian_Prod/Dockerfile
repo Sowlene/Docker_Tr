@@ -31,6 +31,7 @@ RUN apt update -q \
 	uwsgi \
 	curl \
 	uwsgi-plugin-python3 \
+	openjdk-8-jre
 	libmagickwand-dev \
 	postgresql-server-dev-all \
 	postgresql \

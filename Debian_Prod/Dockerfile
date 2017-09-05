@@ -84,7 +84,7 @@ RUN apt update -q \
 	&& chown root:www-data -R /var/tracim/logs \
 	&& chmod 775 -R /var/tracim/logs \
 	&& rm /etc/nginx/sites-enabled/default \
-	&& chmod 755 /tracim/entrypoint.sh \
+	&& chmod 770 /tracim/entrypoint.sh \
 	&& rm -rf /vat/lib/apt/list/* \	
 	&& rm -rf /var/cache/apt/archives/*
 

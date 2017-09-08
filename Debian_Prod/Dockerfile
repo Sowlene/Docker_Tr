@@ -13,7 +13,6 @@ ENV LC_ALL C.UTF-8
 
 #Install required packages
 RUN apt update -q \
-	&& echo XXXXXXXXXXXXXXXXXXXXXXXXXXX \
 	&& apt install -yq sudo \
 	git \
 	locales \
@@ -57,14 +56,17 @@ RUN apt update -q \
 	&& npm install \
 #Compile them
 	&& npm run gulp-dev # for a development environment \
+	&& echo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX COMPILE STEP SUCCED XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 #Install Tracim and its dependencies
-	&& cd /tracim/tracim \
+#BUG : commande s'interrompt sans que Docker le vois.
+RUN cd /tracim/tracim \
 	&& python3 setup.py develop \
 	&& cd /tracim/ \
 	&& pip3 install -r install/requirements.txt \
 	&& pip3 install -r install/requirements.mysql.txt \
 	&& pip3 install -r install/requirements.postgresql.txt \
 	&& pip3 install mysqlclient \
+	&& echo XXXXXXXXXXXXXXXXXXXXXXXXXXXXX Installation pip OK XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
 #Conf files
 	&& cp /tracim/tracim/development.ini.base /tracim/tracim/development.ini \
 	&& cp /tracim/tracim/wsgidav.conf.sample /tracim/tracim/wsgidav.conf \
@@ -76,17 +78,16 @@ RUN apt update -q \
 	&& mkdir /var/tracim \
 	&& mkdir /var/tracim/logs \
 	&& mkdir /var/tracim/assets \
+	&& echo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX Preparation Volumes OK XXXXXXXXXXXXXXXXXXXXXXXX \
 #Init config files
 	&& ln -s /etc/tracim/uwsgi.ini /etc/uwsgi/apps-available/tracim.ini \
 	&& ln -s /etc/uwsgi/apps-available/tracim.ini /etc/uwsgi/apps-enabled/tracim.ini \
 	&& ln -s /etc/tracim/nginx.conf /etc/nginx/sites-available/tracim.conf \
 	&& ln -s /etc/nginx/sites-available/tracim.conf /etc/nginx/sites-enabled/tracim.conf \ 
 	&& chown root:www-data -R /var/tracim/logs \
-	&& chmod 775 -R /var/tracim/logs \
-	&& rm /etc/nginx/sites-enabled/default \
-	&& chmod 770 /tracim/entrypoint.sh \
-	&& rm -rf /vat/lib/apt/list/* \	
+	&& rm -rf /var/lib/apt/list/* \	
 	&& rm -rf /var/cache/apt/archives/*
+#TODO retirer les paquets inutiles post-install
 
 VOLUME ["/etc/tracim", "/var/tracim"]
 
@@ -97,5 +98,9 @@ COPY check_env_vars.sh /tracim/check_env_vars.sh
 COPY common.sh /tracim/common.sh
 COPY entrypoint.sh /tracim/entrypoint.sh
 
+RUN chmod 775 -R /var/tracim/logs \
+	&& rm /etc/nginx/sites-enabled/default \
+	&& chmod 755 /tracim/entrypoint.sh \
+	&& chmod +x /tracim/entrypoint.sh
 
-CMD ["/tracim/entrypoint.sh"]
+CMD ["/bin/bash","/tracim/entrypoint.sh"]

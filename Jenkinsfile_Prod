@@ -32,7 +32,7 @@ pipeline {
     }
     stage('End') {
       steps {
-        echo 'End'
+        echo 'End and try'
       }
     }
   }

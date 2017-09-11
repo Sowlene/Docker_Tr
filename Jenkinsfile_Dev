@@ -48,7 +48,7 @@ pipeline {
             
           },
           "Sqlite_DEV": {
-            echo 'Run with PSqlite'
+            echo 'Run with PSqlite and then'
             sh 'cd Debian_Dev/ && docker run -e TEST_DATABASE_ENGINE=sqlite solene/docker_trac_dev'
             
           }

@@ -57,7 +57,7 @@ pipeline {
     }
     stage('End') {
       steps {
-        echo 'End and try to webhook myproject'
+        echo 'End'
       }
     }
   }

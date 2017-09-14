@@ -7,6 +7,8 @@ node {
     genericVariables: [
      [expressionType: 'JSONPath', key: 'COMMIT_ID', value: '$.head_commit.id']
     ]
+    ]
+    ])
     ])
   stages {
     stage('Welcome') {

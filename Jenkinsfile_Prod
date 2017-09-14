@@ -1,7 +1,5 @@
 pipeline {
-  agent {
-    node { label 'branch' }
-  }
+  agent any
   stages {
     stage('Welcome') {
       steps {

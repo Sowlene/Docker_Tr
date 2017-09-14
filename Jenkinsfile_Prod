@@ -5,7 +5,7 @@ pipeline {
       steps {
         parallel(
           "Welcome": {
-           sh 'echo $.ref plop $.branche '$ref''
+           sh 'echo $branch'
           },
           "Situation": {
             sh 'pwd && who && ls -Shal #l not pass'

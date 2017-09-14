@@ -84,10 +84,8 @@ if [ "$INIT_DATABASE" = true ] ; then
 fi
 
 # Upgrade database
-if [ "$PULL" = 1 ]; then
-    echo "Upgrade Tracim database if required"
-    cd /tracim/tracim/ && gearbox migrate upgrade
-fi
+echo "Upgrade Tracim database if required"
+cd /tracim/tracim/ && gearbox migrate upgrade
 
 service nginx start
 

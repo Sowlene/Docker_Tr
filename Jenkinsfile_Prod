@@ -1,3 +1,5 @@
+pipeline {
+  agent any
 node {
  properties([
   pipelineTriggers([
@@ -41,4 +43,5 @@ node {
       }
     }
   }
+}
 }

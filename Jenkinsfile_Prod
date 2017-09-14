@@ -39,7 +39,7 @@ node {
     }
     stage('End') {
       steps {
-        echo 'TRY'
+        echo 'TRY '
       }
     }
   }

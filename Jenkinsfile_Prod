@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    node { label '$branch' }
+    node { label 'branch' }
   }
   stages {
     stage('Welcome') {

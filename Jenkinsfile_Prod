@@ -5,8 +5,7 @@ pipeline {
       steps {
         parallel(
           "Welcome": {
-            echo 'Here we go'
-            
+            echo 'Here we go' && echo '$COMMIT_ID' && echo 'TOTO'
           },
           "Situation": {
             sh 'pwd && who && ls -Shal #l not pass'

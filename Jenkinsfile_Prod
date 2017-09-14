@@ -31,7 +31,7 @@ agent any
     }
     stage('End') {
       steps {
-        echo 'TRY '
+        echo 'We will try this way !'
       }
     }
   }

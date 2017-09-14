@@ -1,15 +1,5 @@
 pipeline {
   agent any
-  node {
- properties([
-  pipelineTriggers([
-   [$class: 'GenericTrigger',
-    genericVariables: [
-     [expressionType: 'JSONPath', key: 'COMMIT_ID', value: '$.head_commit.id']
-    ]
-    ]
-    ])
-    ])
   stages {
     stage('Welcome') {
       steps {

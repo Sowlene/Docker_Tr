@@ -5,7 +5,7 @@ agent any
       steps {
         parallel(
           "Welcome": {
-           sh 'echo before $COMMIT_ID'
+           sh 'echo $COMMIT_ID'
           },
           "Situation": {
             sh 'pwd && who && ls -Shal #l not pass'

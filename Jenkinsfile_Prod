@@ -5,7 +5,7 @@ pipeline {
       steps {
         parallel(
           "Welcome": {
-           sh 'echo $foo coco'
+           sh 'echo $.hello coco'
           },
           "Situation": {
             sh 'pwd && who && ls -Shal #l not pass'

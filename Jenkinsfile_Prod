@@ -5,8 +5,7 @@ pipeline {
       steps {
         parallel(
           "Welcome": {
-            echo 'Here we go'
-            
+           sh 'echo $branch'
           },
           "Situation": {
             sh 'pwd && who && ls -Shal #l not pass'
@@ -32,7 +31,7 @@ pipeline {
     }
     stage('End') {
       steps {
-        echo 'End'
+        echo 'AGAIN Again.'
       }
     }
   }

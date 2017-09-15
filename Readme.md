@@ -5,3 +5,5 @@ We will figure out if webhooks finaly works.
 
 Caution : if 403 errors appear please turn off "	CSRF Protection" in :
 "Manage Jenkins" -> "Configure Global security" -> "CSRF Protection"
+
+Trying github jenkins plugin !

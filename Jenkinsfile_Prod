@@ -5,7 +5,7 @@ pipeline {
       steps {
         parallel(
           "Welcome": {
-           echo 'Welcome'
+           echo '"GWBT_COMMIT_BEFORE:  $GWBT_COMMIT_BEFORE"'
           },
           "Situation": {
             sh 'pwd && who && ls -Shal #l not pass'

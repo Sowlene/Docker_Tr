@@ -5,7 +5,7 @@ pipeline {
       steps {
         parallel(
           "Welcome": {
-           sh 'Welcome"'
+           sh 'Welcome'
           },
           "Situation": {
             sh 'pwd && who && ls -Shal #l not pass'

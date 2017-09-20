@@ -5,7 +5,7 @@ pipeline {
       steps {
         parallel(
           "Welcome": {
-            echo 'Here we go'
+            echo 'Here we GO !'
             
           },
           "Situation": {

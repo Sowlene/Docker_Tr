@@ -5,4 +5,4 @@ This is my docker image to install a software
 Caution : if 403 errors appear please turn off "	CSRF Protection" in :
 "Manage Jenkins" -> "Configure Global security" -> "CSRF Protection"
 
-We're checking the "checkout" to use it after !
+Tomorrow i will check if curl option can triggered jenkins job :)

@@ -31,7 +31,7 @@ pipeline {
     }
     stage('End') {
       steps {
-        echo 'We will know soon'
+        echo 'end'
       }
     }
   }

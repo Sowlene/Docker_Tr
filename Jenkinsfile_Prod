@@ -8,7 +8,7 @@ pipeline {
            echo '$GWBT_BRANCH'
           },
           "Situation": {
-            sh 'pwd && who && ls -Shal #l not pass'
+            sh 'pwd && who && ls -Shal #l not pas'
             
           }
         )

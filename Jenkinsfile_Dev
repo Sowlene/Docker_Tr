@@ -57,7 +57,7 @@ pipeline {
     }
     stage('End') {
       steps {
-        echo  Pipeline end'
+        echo  'Pipeline end'
       }
     }
   }

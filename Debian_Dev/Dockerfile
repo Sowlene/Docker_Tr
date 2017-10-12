@@ -1,7 +1,7 @@
 FROM debian:latest
 MAINTAINER contact@algoo.fr
 
-#TODO TRy @Damien: processus d'install (pip) plein de warning et d'erreur de compilation non fatals. 
+#TODO @Damien: processus d'install (pip) plein de warning et d'erreur de compilation non fatals. 
 
 #Install required packages
 RUN apt update -q \

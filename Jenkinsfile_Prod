@@ -5,7 +5,7 @@ pipeline {
       steps {
         parallel(
           "Welcome": {
-           echo '$GWBT_BRANCH'
+           echo 'Hello'
           },
           "Situation": {
             sh 'pwd && who && cat variables.txt && ls -Shal #l not pas'

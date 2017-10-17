@@ -5,10 +5,10 @@ pipeline {
       steps {
         parallel(
           "Welcome": {
-           echo 'GWBT_COMMIT_BEFORE:  $GWBT_COMMIT_BEFORE'
+           echo 'Hello'
           },
           "Situation": {
-            sh 'pwd && who && ls -Shal #l not pass'
+            sh 'pwd && who && cat variables.txt && ls -Shal #l not pas'
             
           }
         )
@@ -32,7 +32,7 @@ pipeline {
     stage('End') {
       steps {
         echo 'END'
-      }
+        }
     }
   }
 }
